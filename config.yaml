@@ -1,0 +1,66 @@
+---
+experiments:
+  metero_use: ['SO2', 'NO2', 'NO', 'NOx', 'O3', 'PM10', 'Temperature', 'Amb RelHum',
+       'Solar Radiation', 'Amb Pressure', 'Rain', 'Longitude', 'Latitude',
+       'alt','Amb Wspeed', 'Amb WDirection']
+
+  save_npy: True
+  dataset_num: 3
+  #model: MLP
+  #model: LSTM
+  #model: GRU
+  #model: GC_LSTM
+  #model: nodesFC_GRU
+  model: PM25_GNN
+  #model: PM25_GNN_nosub
+  #model: GCNs
+
+train:
+  batch_size: 64
+  epochs: 7
+  exp_repeat: 1
+  hist_len: 1
+  pred_len: 24
+  weight_decay: 0.07306481599746971
+  early_stop: 25
+  lr: 0.04628073089037505
+
+filepath:
+  #Charlenes-MacBook-Air-2.local:
+  vongani-VivoBook-15-ASUS-Laptop-X540UAR :
+    knowair_fp: /home/vongani/Documents/My Model-20221108T095003Z-002/My Model/My Model/data/ProjectData.npy
+    results_dir: /home/vongani/Documents/My Model-20221108T095003Z-002/My Model/My Model/data/results
+    
+
+data:
+  metero_var:
+    ['SO2', 'NO2', 'NO', 'NOx', 'O3', 'PM10', 'Temperature', 'Amb RelHum',
+       'Solar Radiation', 'Amb Pressure', 'Rain', 'Longitude', 'Latitude',
+       'alt','Amb Wspeed', 'Amb WDirection']
+
+dataset:
+  data_start: [[2019, 1, 1, 0, 0], GMT+2]
+  data_end: [[2022, 7, 19, 1, 0], GMT+2]
+
+  1:
+    train_start: [[2019, 1, 1], GMT+2]
+    train_end: [[2019, 12, 31], GMT+2]
+    val_start: [[2020, 1, 1], GMT+2]
+    val_end: [[2020, 12, 31], GMT+2]
+    test_start: [[2021, 1, 1], GMT+2]
+    test_end: [[2021, 12, 31], GMT+2]
+  2:
+    train_start: [[2019, 11, 1], GMT+2]
+    train_end: [[2020, 2, 28], GMT+2]
+    val_start: [[2020, 11, 1], GMT+2]
+    val_end: [[2021, 2, 28], GMT+2]
+    test_start: [[2021, 11, 1], GMT+2]
+    test_end: [[2022, 2, 28], GMT+2]
+
+  3:
+    train_start: [[2019, 1, 1], GMT+2]
+    train_end: [[2019, 12, 31], GMT+2]
+    val_start: [[2020, 1, 1], GMT+2]
+    val_end: [[2020, 12, 31], GMT+2]
+    test_start: [[2021, 1, 1], GMT+2]
+    test_end: [[2021, 6, 30], GMT+2]
